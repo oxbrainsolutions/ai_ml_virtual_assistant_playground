@@ -6,7 +6,7 @@ import imutils
 
 openai.api_key = "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"
 
-st.set_page_config(page_title="Virtual Assistant Playground", page_icon="images/oxbrain_favicon.png", layout="wide")
+st.set_page_config(page_title="Virtual Assistant Playground", page_icon="images/playground_favicon.png", layout="wide")
 
 st.elements.utils._shown_default_value_warning=True
 
@@ -744,17 +744,17 @@ header = """
     </style>
     <div class="header">
         <div class="middle-column">
-            <img src="data:image/png;base64,{}" class="img-fluid" alt="comrate_logo" width="8%">
+            <img src="data:image/png;base64,{}" class="img-fluid" alt="logo" width="6%">
         </div>
     </div>
 """
 
 # Replace `image_file_path` with the actual path to your image file
-image_file_path = "images/oxbrain_header_background.jpg"
+image_file_path = "images/playground_background.jpg"
 with open(image_file_path, "rb") as image_file:
     encoded_string = base64.b64encode(image_file.read()).decode()
 
-st.markdown(header.format(encoded_string, img_to_bytes("images/oxbrain_logo_trans.png")),
+st.markdown(header.format(encoded_string, img_to_bytes("images/playground_logo.png")),
             unsafe_allow_html=True)
 
 spinner = st.empty()
@@ -762,7 +762,7 @@ spinner = st.empty()
 col1, col2, col3 = st.columns([1, 4, 1])
 with col2:
     header_text = '''
-    <p class="header_text" style="margin-top: 3.6em; margin-bottom: 0em; text-align: center;"><span style="color: #FAFAFA; font-family: sans-serif; font-size: 1.8em; ">Virtual Conversational Assistant</span></p>
+    <p class="header_text" style="margin-top: 4em; margin-bottom: 0em; text-align: center;"><span style="color: #FAFAFA; font-family: sans-serif; font-size: 1.8em; ">Virtual Conversational Assistant</span></p>
     '''
     
     header_media_query = '''
@@ -795,11 +795,11 @@ interaction_limit = 10
 
 if len(st.session_state.messages) < 2 * interaction_limit:
     if prompt := st.chat_input(""):
-        st.session_state.messages.append({"role": "user", "content": prompt, "avatar": "images/oxbrain_user_icon.png"})
-        with st.chat_message("user", avatar="images/oxbrain_user_icon.png"):
+        st.session_state.messages.append({"role": "user", "content": prompt, "avatar": "images/playground_user_icon.png"})
+        with st.chat_message("user", avatar="images/playground_user_icon.png"):
             st.markdown(prompt)
     
-        with st.chat_message("assistant", avatar="images/oxbrain_assistant_icon.png"):
+        with st.chat_message("assistant", avatar="images/playground_assistant_icon.png"):
             message_placeholder = st.empty()
             full_response = ""
             for response in openai.ChatCompletion.create(
@@ -813,7 +813,7 @@ if len(st.session_state.messages) < 2 * interaction_limit:
                 full_response += response.choices[0].delta.get("content", "")
                 message_placeholder.markdown(full_response + "▌")
             message_placeholder.markdown(full_response)
-        st.session_state.messages.append({"role": "assistant", "content": full_response, "avatar": "images/oxbrain_assistant_icon.png"})
+        st.session_state.messages.append({"role": "assistant", "content": full_response, "avatar": "images/playground_assistant_icon.png"})
 else:
     col1, col2, col3 = st.columns([1, 4, 1])
     with col2:

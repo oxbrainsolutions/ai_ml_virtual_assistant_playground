@@ -464,10 +464,10 @@ st.markdown("""
         max-width: 3em !important;
     }
     .css-gesnqs {
-        background-color: #FCBC24 !important;
+        background-color: #03A9F4 !important;
     }
     .css-fpzaie {
-        background-color: #FCBC24 !important;
+        background-color: #03A9F4 !important;
     }
     .css-5qhjmn {
         z-index: 1000 !important;
@@ -503,7 +503,7 @@ st.markdown("""
         z-index: 1000 !important;
     }
     .css-a2dvil {
-        color: #FCBC24 !important;
+        color: #03A9F4 !important;
     }
     .css-f4ro0r {
         align-items: center !important;

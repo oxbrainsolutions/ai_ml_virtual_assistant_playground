@@ -802,7 +802,7 @@ if len(st.session_state.messages) < 2 * interaction_limit:
         with st.chat_message("assistant", avatar="images/playground_assistant_icon.png"):
             message_placeholder = st.empty()
             full_response = ""
-            for response in openai.Chat.Completion.create(
+            for response in openai.ChatCompletion.create(
                 model=st.session_state["openai_model"],
                 messages=[
                     {"role": m["role"], "content": m["content"]}

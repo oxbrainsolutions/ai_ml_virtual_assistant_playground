@@ -8,7 +8,8 @@ openai.api_key = "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"
 
 st.set_page_config(page_title="Virtual Assistant Playground", page_icon="images/playground_favicon.png", layout="wide")
 
-st.elements.utils._shown_default_value_warning=True
+#st.elements.utils._shown_default_value_warning = True
+st.elements._shown_default_value_warning = True
 
 marker_spinner_css = """
 <style>
